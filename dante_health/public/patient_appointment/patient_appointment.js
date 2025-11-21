@@ -1,17 +1,13 @@
 frappe.ui.form.on('Patient Appointment', {
     patient: function(frm) {
-        // Clear Patient 2 whenever Patient changes
         frm.set_value('custom_patient_2', '');
 
         if (!frm.doc.patient) {
-            // No patient selected → clear filter
             frm.set_query('custom_patient_2', () => {
                 return {};
             });
             return;
         }
-
-        // Fetch selected Patient and load their relations
         frappe.call({
             method: 'frappe.client.get',
             args: {

@@ -4,17 +4,14 @@ frappe.ui.form.on("Patient", {
 
     const { custom_partner_name, custom_relation, custom_partner_gender, sex, first_name, name } = frm.doc;
 
-    // Mandatory partner fields check
     if (!custom_partner_name || !custom_relation || !custom_partner_gender)
       frappe.throw("Please fill Partner Name, Relation, and Gender");
 
-    // Skip if partner already listed in relation table
     const already_in_table = (frm.doc.patient_relation || []).some(
       r => r.patient === custom_partner_name || r.patient_name === custom_partner_name
     );
     if (already_in_table) return;
 
-    // Check if partner already exists
     frappe.call({
       method: "frappe.client.get_value",
       args: { doctype: "Patient", filters: { first_name: custom_partner_name }, fieldname: "name" },
@@ -35,7 +32,6 @@ frappe.ui.form.on("Patient", {
     });
   },
 
-  // Add reverse linking after save
   after_save(frm) {
     if (!frm.doc.custom_is_couple) return;
 
@@ -67,7 +63,6 @@ frappe.ui.form.on("Patient", {
   }
 });
 
-// Helper: Link existing partner
 function link_existing(frm, partner_id) {
   const exists = (frm.doc.patient_relation || []).some(r => r.patient === partner_id);
   if (!exists) {
@@ -79,7 +74,6 @@ function link_existing(frm, partner_id) {
   }
 }
 
-// Helper: Create new partner silently
 function create_partner(frm, args) {
   const { partner_name, partner_gender, relation, patient_name, patient_gender } = args;
 
