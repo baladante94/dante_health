@@ -139,9 +139,9 @@ doctype_js = {
 override_doctype_class = {
     "Patient Appointment": "dante_health.public.patient_appointment.patient_appointment.PatientAppointment"
 }
-override_doctype_class = {
-    "Patient": "dante_health.public.patient.patient.CustomPatient"
-}
+# override_doctype_class = {
+#     "Patient": "dante_health.public.patient.patient.CustomPatient"
+# }
 
 
 
