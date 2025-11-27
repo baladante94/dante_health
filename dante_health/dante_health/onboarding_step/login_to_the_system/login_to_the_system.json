@@ -1,0 +1,20 @@
+{
+ "action": "Go to Page",
+ "action_label": "Login",
+ "creation": "2025-11-24 13:42:52.322103",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2025-11-24 13:43:29.474424",
+ "modified_by": "Administrator",
+ "name": "Login to the system",
+ "owner": "Administrator",
+ "path": "http://test.localhost:8000/app",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Login In",
+ "validate_action": 1
+}

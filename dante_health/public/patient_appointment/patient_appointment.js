@@ -38,5 +38,14 @@ frappe.ui.form.on('Patient Appointment', {
                 }
             }
         });
+    },
+    appointment_type(frm) {
+        if (frm.doc.appointment_type === "Couple") {
+            frm.set_value("custom_is_couple", 1);
+        } else {
+            frm.set_value("custom_is_couple", 0);
+            frm.set_value("custom_patient_2", "");
+            frm.set_value("custom_patient_2_name", "");
+        }
     }
 });
