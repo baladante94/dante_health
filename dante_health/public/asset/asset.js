@@ -16,20 +16,17 @@ frappe.ui.form.on("Asset", {
 	refresh(frm) {
 		render_warranty_info(frm);
 	},
-});
-frappe.ui.form.on("Installed Components", {
-	item_code(frm, cdt, cdn) {
-		// apply filter ONLY inside child table
+	onload: function (frm) {
 		frm.set_query("item_code", "custom_installed_items", function () {
 			return {
 				filters: {
 					is_stock_item: 1,
+					// is_fixed_asset: 0,
 				},
 			};
 		});
 	},
 });
-
 function calculate_expiry_ui(frm) {
 	if (frm.doc.custom_warranty_date && frm.doc.custom_warranty_period) {
 		let end_date = frappe.datetime.add_months(

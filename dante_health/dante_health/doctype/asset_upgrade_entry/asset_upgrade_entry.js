@@ -23,6 +23,15 @@ frappe.ui.form.on("Asset Upgrade Entry", {
 			add_fetch_installed_items_button(frm);
 		}
 	},
+	onload: function (frm) {
+		frm.set_query("item_code", "items", function () {
+			return {
+				filters: {
+					is_stock_item: 1,
+				},
+			};
+		});
+	},
 });
 
 function add_fetch_installed_items_button(frm) {
@@ -92,14 +101,6 @@ function fetch_installed_components(frm) {
 frappe.ui.form.on("Asset Installed Item", {
 	item_code(frm, cdt, cdn) {
 		let row = locals[cdt][cdn];
-		frm.set_query("item_code", "custom_installed_items", function () {
-			return {
-				filters: {
-					is_stock_item: 1,
-				},
-			};
-		});
-
 		if (row.status === "Remove" && frm.doc.asset) {
 			frappe.call({
 				method: "frappe.client.get",
