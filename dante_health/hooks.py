@@ -269,9 +269,9 @@ doc_events = {
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-override_doctype_dashboards = {
-    "Patient": "dante_health.public.patient.patient_dashboard.get_data"
-}
+# override_doctype_dashboards = {
+#     "Patient": "dante_health.public.patient.patient_dashboard.get_data"
+# }
 
 
 
