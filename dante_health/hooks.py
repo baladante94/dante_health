@@ -48,6 +48,7 @@ doctype_js = {
 	"Patient": "public/patient/patient.js",
 	"Patient Appointment": "public/patient_appointment/patient_appointment.js",
     "Asset": "public/asset/asset.js",
+    "Practitioner Schedule": "public/practitioner_schedule/practitioner_schedule.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

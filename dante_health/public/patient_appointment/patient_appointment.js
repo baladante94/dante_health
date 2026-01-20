@@ -1,3 +1,40 @@
+frappe.ui.form.on("Patient Appointment", {
+	practitioner: function (frm) {
+		calculate_psychology_rate(frm);
+	},
+	duration: function (frm) {
+		calculate_psychology_rate(frm);
+	},
+	is_couple: function (frm) {
+		calculate_psychology_rate(frm);
+	},
+});
+
+function calculate_psychology_rate(frm) {
+	if (frm.doc.practitioner && frm.doc.duration) {
+		frappe.call({
+			method: "dante_health.public.patient_appointment.patient_appointment.get_psychology_rate",
+			args: {
+				practitioner: frm.doc.practitioner,
+				duration: frm.doc.duration,
+				is_couple: frm.doc.is_couple || 0,
+			},
+			callback: function (r) {
+				if (r.message !== undefined) {
+					frm.set_value("custom_consultation_charge", r.message);
+
+					if (r.message > 0) {
+						frappe.msgprint({
+							title: __("Rate Updated"),
+							message: __("Consultation fee updated to: ") + r.message,
+							indicator: "green",
+						});
+					}
+				}
+			},
+		});
+	}
+}
 // frappe.ui.form.on("Patient Appointment", {
 // 	patient: function (frm) {
 // 		frm.set_value("custom_patient_2", "");

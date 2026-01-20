@@ -24,6 +24,63 @@ class CustomPatientAppointment(HealthcarePatientAppointment):
                 self.get(frappe.scrub(self.appointment_for))
             )
             
+@frappe.whitelist()
+def get_psychology_rate(practitioner, is_couple, duration):
+    # 1. Sanitize Inputs
+    # Ensure is_couple is treated as an integer (0 or 1)
+    try:
+        is_couple_val = int(is_couple)
+    except (TypeError, ValueError):
+        is_couple_val = 0
+        
+    try:
+        duration = int(duration)
+    except (TypeError, ValueError):
+        return 0
+
+    # 2. Map Checkbox to Configuration String
+    # 1 -> "Couple", 0 -> "Single"
+    # This matches the 'type' column in your Practitioner Child Table
+    lookup_type = "Couple" if is_couple_val == 1 else "Single"
+    
+    # 3. Fetch Practitioner Rates
+    if not practitioner:
+        return 0
+        
+    practitioner_doc = frappe.get_doc("Healthcare Practitioner", practitioner)
+    
+    # Safety check: Ensure the child table exists
+    if not hasattr(practitioner_doc, 'custom_service_rates'):
+         return 0
+
+    rates = practitioner_doc.custom_service_rates 
+    
+    # 4. Filter by Type (Single vs Couple)
+    relevant_rates = [r for r in rates if r.type == lookup_type]
+    
+    if not relevant_rates:
+        return 0
+
+    # 5. Exact Match Logic
+    exact_match = next((r for r in relevant_rates if r.duration == duration), None)
+    if exact_match:
+        return exact_match.rate
+
+    # 6. Pro-Rata / Extension Logic (The "Gap" Math)
+    # Finds a 30-min baseline to calculate the per-minute cost
+    baseline = next((r for r in relevant_rates if r.duration == 30), None)
+    
+    # Fallback: If 30-min rate isn't defined, use the first available one
+    if not baseline:
+        baseline = relevant_rates[0]
+
+    # Calculate Rate Per Minute
+    rate_per_minute = baseline.rate / baseline.duration
+    
+    # Calculate Final Amount (e.g., 45 mins * rate_per_minute)
+    final_amount = rate_per_minute * duration
+    
+    return round(final_amount)
 
 # import frappe
 # import datetime

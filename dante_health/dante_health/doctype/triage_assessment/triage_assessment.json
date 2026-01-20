@@ -1,0 +1,878 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TRG-{MM}-{YYYY}-{#####}",
+ "creation": "2025-01-01 10:00:00",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_admin",
+  "patient_name",
+  "age",
+  "gender",
+  "occupation_role",
+  "work_mode",
+  "work_hours_day",
+  "cb_admin_1",
+  "referral_source",
+  "bmi",
+  "corporate_client",
+  "chief_complaint",
+  "notes_admin",
+  "sb_triage",
+  "cb_red_flags_list",
+  "rf_trauma",
+  "rf_fever",
+  "rf_cancer",
+  "rf_night_pain",
+  "rf_bladder",
+  "rf_saddle",
+  "rf_numbness",
+  "rf_bilateral",
+  "rf_foot_drop",
+  "rf_action_taken",
+  "sb_start_msk",
+  "pain_intensity_avg",
+  "start_risk",
+  "notes_start_msk",
+  "cb_start_items",
+  "start_msk_q1",
+  "start_msk_q2",
+  "start_msk_q3",
+  "start_msk_q4",
+  "start_msk_q5",
+  "start_msk_q6",
+  "start_msk_q7",
+  "start_msk_q8",
+  "start_msk_q9",
+  "sb_holistic",
+  "cb_holistic_1",
+  "mskhq_q1",
+  "mskhq_q2",
+  "mskhq_q3",
+  "mskhq_q4",
+  "mskhq_q5",
+  "mskhq_q6",
+  "cb_holistic_2",
+  "mskhq_q7",
+  "mskhq_q8",
+  "mskhq_q9",
+  "mskhq_q10",
+  "mskhq_q11",
+  "mskhq_q12",
+  "mskhq_score",
+  "sb_functional",
+  "func_lim_walking",
+  "func_lim_dressing",
+  "cb_func_2",
+  "func_lim_lifting",
+  "func_lim_sleep",
+  "func_impact",
+  "sb_tolerances",
+  "tol_sitting",
+  "tol_standing",
+  "tol_walking",
+  "notes_functional",
+  "sb_occupational",
+  "was_score",
+  "cb_environment",
+  "setup_primary",
+  "chair",
+  "workstyle",
+  "breaks",
+  "cb_context",
+  "context_load_commute",
+  "context_load_domestic",
+  "ergo_risk",
+  "notes_ergo",
+  "sb_physical",
+  "rom_restriction",
+  "movement_quality",
+  "functional_tests",
+  "breath_pattern",
+  "bolt_score",
+  "cb_sense",
+  "pain_spreading",
+  "allodynia",
+  "fatigue_load",
+  "somatic_awareness",
+  "pacing_skill",
+  "notes_physical",
+  "sb_psych",
+  "phq2_q1",
+  "phq2_q2",
+  "phq2_total",
+  "fear_avoidance_level",
+  "cb_psych_2",
+  "motivation",
+  "confidence",
+  "notes_psych",
+  "sb_synthesis",
+  "wt_physio",
+  "wt_psych",
+  "cb_synthesis_2",
+  "wt_ot_ergo",
+  "wt_breath",
+  "clinical_impression",
+  "goal_short_term",
+  "goal_long_term",
+  "pathway_initial",
+  "priority",
+  "notes_pathway",
+  "sb_mgmt",
+  "ocs_score",
+  "ods_score",
+  "cb_criteria",
+  "risk_crit_start",
+  "risk_crit_was",
+  "risk_crit_ergo",
+  "risk_crit_red_flag",
+  "risk_crit_fatigue",
+  "final_risk_rating",
+  "mgmt_summary_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_admin",
+   "fieldtype": "Section Break",
+   "label": "A. ADMIN & DEMOGRAPHICS"
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOther"
+  },
+  {
+   "fieldname": "cb_admin_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "occupation_role",
+   "fieldtype": "Data",
+   "label": "Occupation / Role"
+  },
+  {
+   "fieldname": "work_mode",
+   "fieldtype": "Select",
+   "label": "Work Mode",
+   "options": "\nWFH\nSite\nHybrid\nField"
+  },
+  {
+   "fieldname": "work_hours_day",
+   "fieldtype": "Select",
+   "label": "Work Hours/Day",
+   "options": "\n<6\n6-8\n8-10\n>10"
+  },
+  {
+   "fieldname": "referral_source",
+   "fieldtype": "Select",
+   "label": "Referral Source",
+   "options": "\nSelf\nDoctor\nPhysio\nCorporate\nOther"
+  },
+  {
+   "fieldname": "corporate_client",
+   "fieldtype": "Link",
+   "label": "Corporate Client (B2B)",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "bmi",
+   "fieldtype": "Float",
+   "label": "BMI [Auto-Calculated]",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chief_complaint",
+   "fieldtype": "Small Text",
+   "label": "Chief Complaint"
+  },
+  {
+   "fieldname": "notes_admin",
+   "fieldtype": "Small Text",
+   "label": "A.1. Clinician Notes (Admin / Referral Context):"
+  },
+  {
+   "fieldname": "sb_triage",
+   "fieldtype": "Section Break",
+   "label": "B. CLINICAL TRIAGE & SAFETY SCREENING"
+  },
+  {
+   "fieldname": "cb_red_flags_list",
+   "fieldtype": "Column Break",
+   "label": "B.1. Red Flags (Immediate Safety Screen - Yes/No)"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_trauma",
+   "fieldtype": "Check",
+   "label": "Recent trauma (fall/accident)"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_fever",
+   "fieldtype": "Check",
+   "label": "Fever/chills/unexplained weight loss"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_cancer",
+   "fieldtype": "Check",
+   "label": "Cancer history"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_night_pain",
+   "fieldtype": "Check",
+   "label": "Night pain unrelieved by rest"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_bladder",
+   "fieldtype": "Check",
+   "label": "Bladder/bowel changes"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_saddle",
+   "fieldtype": "Check",
+   "label": "Saddle anaesthesia"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_numbness",
+   "fieldtype": "Check",
+   "label": "Rapidly worsening numbness/weakness"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_bilateral",
+   "fieldtype": "Check",
+   "label": "Bilateral symptoms"
+  },
+  {
+   "default": "0",
+   "fieldname": "rf_foot_drop",
+   "fieldtype": "Check",
+   "label": "Foot drop / major weakness"
+  },
+  {
+   "fieldname": "rf_action_taken",
+   "fieldtype": "Select",
+   "label": "Immediate Action (If ANY checked):",
+   "options": "\nMD referral\nImaging\nER"
+  },
+  {
+   "fieldname": "sb_start_msk",
+   "fieldtype": "Section Break",
+   "label": "B.2. STarT MSK (Validated Risk Score 0-12)"
+  },
+  {
+   "fieldname": "pain_intensity_avg",
+   "fieldtype": "Int",
+   "label": "1. Average Pain Intensity (Last 2 weeks, 0-10):"
+  },
+  {
+   "fieldname": "cb_start_items",
+   "fieldtype": "Column Break",
+   "label": "2. Screening Items"
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q1",
+   "fieldtype": "Check",
+   "label": "Pain in more than one region"
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q2",
+   "fieldtype": "Check",
+   "label": "Pain has spread from original area"
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q3",
+   "fieldtype": "Check",
+   "label": "Pain is very/extremely bothersome"
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q4",
+   "fieldtype": "Check",
+   "label": "Feeling anxious or worried much of the time"
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q5",
+   "fieldtype": "Check",
+   "label": "Less interest/pleasure in activities"
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q6",
+   "fieldtype": "Check",
+   "label": "\"I feel this will never get better\""
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q7",
+   "fieldtype": "Check",
+   "label": "\"I can only walk short distances because of pain\""
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q8",
+   "fieldtype": "Check",
+   "label": "\"I have trouble dressing because of pain\""
+  },
+  {
+   "default": "0",
+   "fieldname": "start_msk_q9",
+   "fieldtype": "Check",
+   "label": "\"Physical activity might harm me\""
+  },
+  {
+   "fieldname": "start_risk",
+   "fieldtype": "Int",
+   "label": "TOTAL STarT SCORE:",
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes_start_msk",
+   "fieldtype": "Small Text",
+   "label": "B.3. Clinician Comments:"
+  },
+  {
+   "fieldname": "sb_holistic",
+   "fieldtype": "Section Break",
+   "label": "C. HOLISTIC HEALTH STATUS"
+  },
+  {
+   "fieldname": "mskhq_q1",
+   "fieldtype": "Select",
+   "label": "1. Pain/Stiffness Severity: (Day)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q2",
+   "fieldtype": "Select",
+   "label": "2. Pain/Stiffness Severity: (Night)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q3",
+   "fieldtype": "Select",
+   "label": "3. Physical Function: (Walking/Moving)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q4",
+   "fieldtype": "Select",
+   "label": "4. Daily Activities: (Washing/Dressing)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q5",
+   "fieldtype": "Select",
+   "label": "5. Independence: (Needing help)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q6",
+   "fieldtype": "Select",
+   "label": "6. Work Interference: (Job/Education)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "cb_holistic_2",
+   "fieldtype": "Column Break",
+   "label": "Rate your state over the past 2 weeks (0 = Worst, 4 = Best). "
+  },
+  {
+   "fieldname": "mskhq_q7",
+   "fieldtype": "Select",
+   "label": "7. Social Interference: (Hobbies/Family)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q8",
+   "fieldtype": "Select",
+   "label": "8. Sleep Quality:",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q9",
+   "fieldtype": "Select",
+   "label": "9. Fatigue/Energy:",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q10",
+   "fieldtype": "Select",
+   "label": "10. Emotional Health: (Anxiety/Mood)",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q11",
+   "fieldtype": "Select",
+   "label": "11. Understanding:",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_q12",
+   "fieldtype": "Select",
+   "label": "12. Confidence:",
+   "options": "\n4\n3\n2\n1\n0"
+  },
+  {
+   "fieldname": "mskhq_score",
+   "fieldtype": "Int",
+   "label": "MSK-HQ SCORE:",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_functional",
+   "fieldtype": "Section Break",
+   "label": "C.2. Key Functional Limitations"
+  },
+  {
+   "fieldname": "func_lim_walking",
+   "fieldtype": "Select",
+   "label": "Walking",
+   "options": "\n0=No\n1=Mild\n2=Moderate\n3=Severe"
+  },
+  {
+   "fieldname": "func_lim_dressing",
+   "fieldtype": "Select",
+   "label": "Dressing / Self-Care",
+   "options": "\n0=No\n1=Mild\n2=Moderate\n3=Severe"
+  },
+  {
+   "fieldname": "cb_func_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "func_lim_lifting",
+   "fieldtype": "Select",
+   "label": "Lifting / Carrying",
+   "options": "\n0=No\n1=Mild\n2=Moderate\n3=Severe"
+  },
+  {
+   "fieldname": "func_lim_sleep",
+   "fieldtype": "Select",
+   "label": "Sleep",
+   "options": "\n0=No\n1=Mild\n2=Moderate\n3=Severe"
+  },
+  {
+   "fieldname": "func_impact",
+   "fieldtype": "Int",
+   "label": "Functional Impact Index:",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_tolerances",
+   "fieldtype": "Section Break",
+   "label": "C.3. Activity Tolerances"
+  },
+  {
+   "fieldname": "tol_sitting",
+   "fieldtype": "Select",
+   "label": "Sitting tolerance:",
+   "options": "\n<15 min\n15-30\n30-60\n>60"
+  },
+  {
+   "fieldname": "tol_standing",
+   "fieldtype": "Select",
+   "label": "Standing tolerance:",
+   "options": "\n<10 min\n10-20\n20-30\n>30"
+  },
+  {
+   "fieldname": "tol_walking",
+   "fieldtype": "Select",
+   "label": "Walking tolerance:",
+   "options": "\n<5 min\n5-10\n10-20\n>20"
+  },
+  {
+   "fieldname": "notes_functional",
+   "fieldtype": "Small Text",
+   "label": "C.4. Clinician Notes (Functional Impact):"
+  },
+  {
+   "fieldname": "sb_occupational",
+   "fieldtype": "Section Break",
+   "label": "D. OCCUPATIONAL PERFORMANCE"
+  },
+  {
+   "fieldname": "was_score",
+   "fieldtype": "Int",
+   "label": "Work Ability Score (0-10):"
+  },
+  {
+   "fieldname": "cb_environment",
+   "fieldtype": "Column Break",
+   "label": "D.2. Environment"
+  },
+  {
+   "fieldname": "setup_primary",
+   "fieldtype": "Select",
+   "label": "Primary setup:",
+   "options": "\nLaptop only\nLaptop + ext. KB/Mouse\nDesktop\nMulti-screen"
+  },
+  {
+   "fieldname": "chair",
+   "fieldtype": "Select",
+   "label": "Chair:",
+   "options": "\nOffice\nDining\nSofa/Bed\nOther"
+  },
+  {
+   "fieldname": "workstyle",
+   "fieldtype": "Select",
+   "label": "Workstyle (Dominant):",
+   "options": "\nLong sitting blocks\nFrequent device use\nHigh-stress calls\nRepetitive tasks"
+  },
+  {
+   "fieldname": "breaks",
+   "fieldtype": "Select",
+   "label": "Breaks:",
+   "options": "\nRare (<1/hr)\nInconsistent\nGood microbreaks\nUses reminders/app"
+  },
+  {
+   "fieldname": "cb_context",
+   "fieldtype": "Column Break",
+   "label": "D.3. Context"
+  },
+  {
+   "fieldname": "context_load_commute",
+   "fieldtype": "Select",
+   "label": "Commute Strain:",
+   "options": "\nDrive\nRide\nPublic\nNone"
+  },
+  {
+   "fieldname": "context_load_domestic",
+   "fieldtype": "Select",
+   "label": "Domestic Load:",
+   "options": "\nHeavy lifting\nFloor-based\nChildcare/Elderly\nNone"
+  },
+  {
+   "fieldname": "ergo_risk",
+   "fieldtype": "Select",
+   "label": "Ergonomic Risk (Clinician Rating):",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "notes_ergo",
+   "fieldtype": "Small Text",
+   "label": "D.5. Clinician Notes (Ergonomic Issues):"
+  },
+  {
+   "fieldname": "sb_physical",
+   "fieldtype": "Section Break",
+   "label": "E. PHYSICAL ASSESSMENT"
+  },
+  {
+   "fieldname": "rom_restriction",
+   "fieldtype": "Select",
+   "label": "Primary Restriction:",
+   "options": "\nFlexion\nExtension\nRotation\nSide Glide\nNone"
+  },
+  {
+   "fieldname": "movement_quality",
+   "fieldtype": "Select",
+   "label": "Movement quality:",
+   "options": "\nSmooth\nGuarded\nPain-limited\nCompensated"
+  },
+  {
+   "fieldname": "functional_tests",
+   "fieldtype": "Data",
+   "label": "Functional tests done (Sit-to-stand, Squat...)"
+  },
+  {
+   "fieldname": "breath_pattern",
+   "fieldtype": "Select",
+   "label": "Pattern (Observation):",
+   "options": "\nDiaphragmatic\nApical\nParadoxical\nMouth"
+  },
+  {
+   "fieldname": "bolt_score",
+   "fieldtype": "Int",
+   "label": "BOLT Score (Breath-Hold Test):"
+  },
+  {
+   "fieldname": "cb_sense",
+   "fieldtype": "Column Break",
+   "label": "Sensitisation"
+  },
+  {
+   "default": "0",
+   "fieldname": "pain_spreading",
+   "fieldtype": "Check",
+   "label": "Pain spreading beyond original site?"
+  },
+  {
+   "default": "0",
+   "fieldname": "allodynia",
+   "fieldtype": "Check",
+   "label": "Increased sensitivity (allodynia)?"
+  },
+  {
+   "fieldname": "fatigue_load",
+   "fieldtype": "Int",
+   "label": "Fatigue load (0-10):"
+  },
+  {
+   "fieldname": "somatic_awareness",
+   "fieldtype": "Int",
+   "label": "Somatic awareness (0-10):"
+  },
+  {
+   "fieldname": "pacing_skill",
+   "fieldtype": "Int",
+   "label": "Pacing skill (0-10):"
+  },
+  {
+   "fieldname": "notes_physical",
+   "fieldtype": "Small Text",
+   "label": "E.4. Clinician Notes (Physical Findings):"
+  },
+  {
+   "fieldname": "sb_psych",
+   "fieldtype": "Section Break",
+   "label": "F. PSYCHOSOCIAL"
+  },
+  {
+   "fieldname": "phq2_q1",
+   "fieldtype": "Select",
+   "label": "1. Little interest or pleasure:",
+   "options": "\n0=Not at all\n1=Several days\n2=More than half\n3=Nearly every day"
+  },
+  {
+   "fieldname": "phq2_q2",
+   "fieldtype": "Select",
+   "label": "2. Feeling down, depressed:",
+   "options": "\n0=Not at all\n1=Several days\n2=More than half\n3=Nearly every day"
+  },
+  {
+   "fieldname": "phq2_total",
+   "fieldtype": "Int",
+   "label": "PHQ-2 Score:",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fear_avoidance_level",
+   "fieldtype": "Select",
+   "label": "Fear-avoidance Level:",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "cb_psych_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "motivation",
+   "fieldtype": "Int",
+   "label": "Motivation to change (0-10):"
+  },
+  {
+   "fieldname": "confidence",
+   "fieldtype": "Int",
+   "label": "Confidence to self-manage (0-10):"
+  },
+  {
+   "fieldname": "notes_psych",
+   "fieldtype": "Small Text",
+   "label": "F.3. Clinician Notes:"
+  },
+  {
+   "fieldname": "sb_synthesis",
+   "fieldtype": "Section Break",
+   "label": "G. SYNTHESIS & CARE PATHWAY"
+  },
+  {
+   "fieldname": "wt_physio",
+   "fieldtype": "Select",
+   "label": "Physiotherapy Weight",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "wt_psych",
+   "fieldtype": "Select",
+   "label": "Psychology Weight",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "cb_synthesis_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wt_ot_ergo",
+   "fieldtype": "Select",
+   "label": "Ergonomics Weight",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "wt_breath",
+   "fieldtype": "Select",
+   "label": "Breathwork Weight",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "clinical_impression",
+   "fieldtype": "Small Text",
+   "label": "Clinical Impression:"
+  },
+  {
+   "fieldname": "goal_short_term",
+   "fieldtype": "Small Text",
+   "label": "Agreed Short-term Goal:"
+  },
+  {
+   "fieldname": "goal_long_term",
+   "fieldtype": "Small Text",
+   "label": "Agreed Long-term Goal:"
+  },
+  {
+   "fieldname": "pathway_initial",
+   "fieldtype": "Select",
+   "label": "Recommended Pathway:",
+   "options": "\nPathway A\nPathway B\nPathway C\nPathway D\nRefer to Specialist"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority:",
+   "options": "\nStandard\nHigh"
+  },
+  {
+   "fieldname": "notes_pathway",
+   "fieldtype": "Small Text",
+   "label": "G.4. Clinician Notes (Safety):"
+  },
+  {
+   "fieldname": "sb_mgmt",
+   "fieldtype": "Section Break",
+   "label": "H. MANAGEMENT SUMMARY"
+  },
+  {
+   "fieldname": "ocs_score",
+   "fieldtype": "Int",
+   "label": "OCS (0-10):",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ods_score",
+   "fieldtype": "Int",
+   "label": "ODS (0-10):",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_criteria",
+   "fieldtype": "Column Break",
+   "label": "Risk Criteria Met?"
+  },
+  {
+   "default": "0",
+   "fieldname": "risk_crit_start",
+   "fieldtype": "Check",
+   "label": "High STarT MSK Risk (Score 9-12)?",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "risk_crit_was",
+   "fieldtype": "Check",
+   "label": "Poor Work Ability Score (WAS 0-5)?",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "risk_crit_ergo",
+   "fieldtype": "Check",
+   "label": "High Ergonomic Risk?",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "risk_crit_red_flag",
+   "fieldtype": "Check",
+   "label": "Red Flag action required?",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "risk_crit_fatigue",
+   "fieldtype": "Check",
+   "label": "Fatigue Load > 7?",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_risk_rating",
+   "fieldtype": "Select",
+   "label": "FINAL OCCUPATIONAL RISK RATING:",
+   "options": "\nLOW\nMEDIUM\nHIGH"
+  },
+  {
+   "fieldname": "mgmt_summary_notes",
+   "fieldtype": "Text",
+   "label": "H.4. Management Summary Notes:"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Triage Assessment",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "cb_holistic_1",
+   "fieldtype": "Column Break",
+   "label": "Rate your state over the past 2 weeks (0 = Worst, 4 = Best). "
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-12-22 11:21:02.067625",
+ "modified_by": "Administrator",
+ "module": "Dante Health",
+ "name": "Triage Assessment",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
