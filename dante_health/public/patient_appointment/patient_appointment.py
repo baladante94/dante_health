@@ -7,10 +7,10 @@ class CustomPatientAppointment(HealthcarePatientAppointment):
     def set_title(self):
         # Couple case
         if self.practitioner:
-            if getattr(self, "custom_is_couple", 0) == 1 and getattr(self, "custom_patient_2", None):
+            if getattr(self, "is_couple", 0) == 1 and getattr(self, "patient2", None):
                 self.title = _("{0} & {1} with {2}").format(
                     self.patient_name or self.patient,
-                    self.custom_patient_2_name or self.custom_patient_2,
+                    self.patient2_name or self.patient2,
                     self.practitioner_name or self.practitioner
                 )
             else:
