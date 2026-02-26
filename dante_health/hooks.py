@@ -190,7 +190,12 @@ override_doctype_class = {
 # -------
 doc_events = {
     "Asset": {
-        "validate": "dante_health.public.asset.asset.validate_warranty_logic"
+        "validate": "dante_health.public.asset.asset.validate_warranty_logic",
+    },
+    "Sales Invoice": {
+        "validate": "dante_health.api.sales_invoice.validate_coupon_on_invoice",
+        "on_submit": "dante_health.api.sales_invoice.on_submit_update_coupon",
+        "on_cancel": "dante_health.api.sales_invoice.on_cancel_update_coupon",
     }
 }
 
